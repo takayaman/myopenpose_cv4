@@ -206,7 +206,7 @@ set_property(CACHE GPU_MODE PROPERTY STRINGS CUDA OPENCL CPU_ONLY)
 # Look for CUDA
 set(CUDA_FOUND FALSE)
 if (${GPU_MODE} MATCHES "CUDA")
-  find_package(CUDA)
+  find_package(CUDA PATHS "/usr/local/cuda" NO_DEFAULT_PATH)
 endif (${GPU_MODE} MATCHES "CUDA")
 # Look for OpenCL
 set(OpenCL_FOUND FALSE)
@@ -343,7 +343,7 @@ endif (APPLE)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 
 if (${GPU_MODE} MATCHES "CUDA")
-  find_package(CUDA)
+  find_package(CUDA PATHS "/usr/local/cuda" NO_DEFAULT_PATH)
 endif (${GPU_MODE} MATCHES "CUDA")
 
 # Adding 3D
